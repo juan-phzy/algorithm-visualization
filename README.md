@@ -5,6 +5,11 @@
 
 This project provides an interactive visualization of two fundamental sorting algorithms: Selection Sort (brute force) and Merge Sort (divide and conquer). It was created as part of the CSCI-335 course to demonstrate algorithm implementation, time complexity analysis, and visual representation of algorithm execution.
 
+You can view the app at:
+
+
+https://algorithm-visualization-five.vercel.app/
+
 ## Features
 
 - **Interactive Array Input**: Enter custom arrays or generate random ones
