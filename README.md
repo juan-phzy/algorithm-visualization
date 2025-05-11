@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Sorting Algorithm Visualizer
 
-## Getting Started
 
-First, run the development server:
+## CSCI-335: Design and Analysis of Algorithms
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+This project provides an interactive visualization of two fundamental sorting algorithms: Selection Sort (brute force) and Merge Sort (divide and conquer). It was created as part of the CSCI-335 course to demonstrate algorithm implementation, time complexity analysis, and visual representation of algorithm execution.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Interactive Array Input**: Enter custom arrays or generate random ones
+- **Selection Sort Visualization**: Step-by-step visualization of the brute-force approach
+- **Merge Sort Visualization**: Step-by-step visualization of the divide-and-conquer approach
+- **Playback Controls**: Play, pause, and scrub through each algorithm's execution
+- **Visual Comparison**: Compare algorithm efficiency through side-by-side visualization
+- **Time Complexity Information**: Educational descriptions of each algorithm's efficiency
+- **Responsive Design**: Works on desktop and mobile devices
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Technologies Used
 
-## Learn More
+- **Next.js**: React framework for building the application
+- **React**: Frontend library for UI components and state management
+- **TypeScript**: Type-safe JavaScript for reliable code
+- **CSS Modules**: Scoped styling for components
 
-To learn more about Next.js, take a look at the following resources:
+## Implementation Details
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Selection Sort
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Selection Sort is implemented as a brute-force approach with the following characteristics:
+- **Time Complexity**: O(n²) for both best and worst cases
+- **Space Complexity**: O(1)
+- **Visual Features**: Highlights current position, comparisons, swaps, and sorted elements
 
-## Deploy on Vercel
+### Merge Sort
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Merge Sort is implemented using a divide-and-conquer approach with the following characteristics:
+- **Time Complexity**: O(n log n) for all cases
+- **Space Complexity**: O(n)
+- **Visual Features**: Highlights subarray divisions, comparisons, and merging operations
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Usage
+
+1. Enter numbers separated by commas in the input field or click "Generate Random" for a random array
+2. Click "Sort" to prepare the algorithms
+3. Use the playback controls to visualize the sorting process:
+   - Play/Pause: Start or pause the animation
+   - Step Forward/Backward: Move through the algorithm one step at a time
+4. Observe the color-coded visualization to understand how each algorithm works
+5. Adjust animation speed using the slider control

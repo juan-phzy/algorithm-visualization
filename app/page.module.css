@@ -1,168 +1,320 @@
-.page {
-  --gray-rgb: 0, 0, 0;
-  --gray-alpha-200: rgba(var(--gray-rgb), 0.08);
-  --gray-alpha-100: rgba(var(--gray-rgb), 0.05);
-
-  --button-primary-hover: #383838;
-  --button-secondary-hover: #f2f2f2;
-
-  display: grid;
-  grid-template-rows: 20px 1fr 20px;
-  align-items: center;
-  justify-items: center;
-  min-height: 100svh;
-  padding: 80px;
-  gap: 64px;
-  font-family: var(--font-geist-sans);
-}
-
-@media (prefers-color-scheme: dark) {
-  .page {
-    --gray-rgb: 255, 255, 255;
-    --gray-alpha-200: rgba(var(--gray-rgb), 0.145);
-    --gray-alpha-100: rgba(var(--gray-rgb), 0.06);
-
-    --button-primary-hover: #ccc;
-    --button-secondary-hover: #1a1a1a;
-  }
-}
-
-.main {
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-  grid-row-start: 2;
-}
-
-.main ol {
-  font-family: var(--font-geist-mono);
-  padding-left: 0;
-  margin: 0;
-  font-size: 14px;
-  line-height: 24px;
-  letter-spacing: -0.01em;
-  list-style-position: inside;
-}
-
-.main li:not(:last-of-type) {
-  margin-bottom: 8px;
-}
-
-.main code {
-  font-family: inherit;
-  background: var(--gray-alpha-100);
-  padding: 2px 4px;
-  border-radius: 4px;
-  font-weight: 600;
-}
-
-.ctas {
-  display: flex;
-  gap: 16px;
-}
-
-.ctas a {
-  appearance: none;
-  border-radius: 128px;
-  height: 48px;
-  padding: 0 20px;
-  border: none;
-  border: 1px solid transparent;
-  transition:
-    background 0.2s,
-    color 0.2s,
-    border-color 0.2s;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 16px;
-  line-height: 20px;
-  font-weight: 500;
-}
-
-a.primary {
-  background: var(--foreground);
-  color: var(--background);
-  gap: 8px;
-}
-
-a.secondary {
-  border-color: var(--gray-alpha-200);
-  min-width: 158px;
-}
-
-.footer {
-  grid-row-start: 3;
-  display: flex;
-  gap: 24px;
-}
-
-.footer a {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.footer img {
-  flex-shrink: 0;
-}
-
-/* Enable hover only on non-touch devices */
-@media (hover: hover) and (pointer: fine) {
-  a.primary:hover {
-    background: var(--button-primary-hover);
-    border-color: transparent;
-  }
-
-  a.secondary:hover {
-    background: var(--button-secondary-hover);
-    border-color: transparent;
-  }
-
-  .footer a:hover {
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
-}
-
-@media (max-width: 600px) {
-  .page {
-    padding: 32px;
-    padding-bottom: 80px;
-  }
-
-  .main {
-    align-items: center;
-  }
-
-  .main ol {
-    text-align: center;
-  }
-
-  .ctas {
+.container {
+    display: flex;
     flex-direction: column;
-  }
-
-  .ctas a {
-    font-size: 14px;
-    height: 40px;
-    padding: 0 16px;
-  }
-
-  a.secondary {
-    min-width: auto;
-  }
-
-  .footer {
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-  }
+    min-height: 100vh;
+    padding: 2rem;
+    color: var(--text);
 }
 
-@media (prefers-color-scheme: dark) {
-  .logo {
-    filter: invert();
-  }
+.header,
+.algorithmSection {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    background: var(--card-bg);
+    backdrop-filter: blur(15px);
+    border-radius: 12px;
+    border: 1px solid var(--card-border);
+    box-shadow: var(--card-shadow);
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.algorithmSection {
+    margin-bottom: 3rem;
+}
+
+.header h1 {
+    margin: 0;
+    color: var(--text-bright);
+    font-size: 2rem;
+    text-align: center;
+    text-shadow: 0 0 15px rgba(66, 165, 245, 0.4);
+}
+
+.algorithmSection h2 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: var(--primary);
+    font-size: 1.5rem;
+    text-shadow: 0 0 10px rgba(66, 165, 245, 0.3);
+}
+
+.description strong {
+    color: var(--text-bright);
+}
+
+.stepInfo {
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+.input {
+    padding: 0.75rem 1rem;
+    background: rgba(20, 20, 35, 0.6);
+    color: var(--text-bright);
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+}
+
+.input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(66, 165, 245, 0.3);
+}
+
+.buttonGroup {
+    display: flex;
+    gap: 1rem;
+}
+
+.button,
+.controlButton {
+    padding: 0.75rem 1rem;
+    background: var(--primary-light);
+    color: var(--text-bright);
+    border: 1px solid var(--primary-border);
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.button {
+    flex: 1;
+}
+
+.controlButton {
+    min-width: 70px;
+    padding: 0.5rem 1rem;
+}
+
+.button:hover,
+.controlButton:hover:not(:disabled) {
+    background: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(66, 165, 245, 0.3);
+}
+
+.button:active,
+.controlButton:active:not(:disabled) {
+    transform: translateY(1px);
+}
+
+.controlButton:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.speedControl {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.speedControl input[type="range"] {
+    flex: 1;
+}
+
+.barContainer {
+    display: flex;
+    align-items: flex-end;
+    height: 200px;
+    padding: 10px;
+    border-radius: 8px;
+    background: rgba(10, 10, 20, 0.5);
+    gap: 4px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.bar {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 3px 3px 0 0;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    transition: height 0.3s ease, background-color 0.3s ease;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.barValue {
+    position: absolute;
+    bottom: -20px;
+    font-size: 0.8rem;
+    color: var(--text-light);
+    font-weight: 500;
+}
+
+.current {
+    background-color: var(--primary);
+    box-shadow: 0 0 10px var(--primary);
+}
+
+.compare {
+    background-color: var(--warning);
+    box-shadow: 0 0 10px var(--warning);
+}
+
+.swap {
+    background-color: var(--danger);
+    box-shadow: 0 0 10px var(--danger);
+}
+
+.sorted {
+    background-color: var(--success);
+    box-shadow: 0 0 10px var(--success);
+}
+
+.leftSubarray {
+    background-color: var(--purple);
+    box-shadow: 0 0 10px var(--purple);
+}
+
+.rightSubarray {
+    background-color: var(--amber);
+    box-shadow: 0 0 10px var(--amber);
+}
+
+.legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 0.7rem;
+    margin-bottom: 0.5rem;
+    background: rgba(10, 10, 20, 0.5);
+    border-radius: 8px;
+    justify-content: center;
+}
+
+.inputForm {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.description {
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.description p {
+    margin: 0.5rem 0;
+}
+
+.visualizerContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    height: 300px;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.legendItem {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.legendBox {
+    width: 15px;
+    height: 15px;
+    border-radius: 3px;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+
+    .header {
+        padding: 1rem;
+    }
+
+    .header h1 {
+        font-size: 1.5rem;
+    }
+
+    .buttonGroup {
+        flex-direction: column;
+    }
+
+    .algorithmSection {
+        padding: 1rem;
+    }
+
+    .algorithmSection h2 {
+        font-size: 1.2rem;
+    }
+
+    .barContainer {
+        height: 150px;
+    }
+
+    .barValue {
+        font-size: 0.7rem;
+    }
+
+    .legend {
+        justify-content: center;
+    }
+
+    .controls {
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0.5rem;
+    }
+
+    .visualizerContainer {
+        height: 250px;
+    }
+
+    .barContainer {
+        height: 120px;
+    }
+
+    .barValue {
+        display: none;
+    }
+
+    .legendItem {
+        font-size: 0.7rem;
+    }
+
+    .legendBox {
+        width: 12px;
+        height: 12px;
+    }
+
+    .controlButton {
+        min-width: 50px;
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
+    }
 }
