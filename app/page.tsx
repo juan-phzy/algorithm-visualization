@@ -30,7 +30,6 @@ export default function SortingVisualizer() {
     const selectionSortIntervalRef = useRef<NodeJS.Timeout | null>(null);
     const mergeSortIntervalRef = useRef<NodeJS.Timeout | null>(null);
 
-    
     useEffect(() => {
         if (array.length > 0) {
             const selectionSteps = generateSelectionSortSteps([...array]);
@@ -41,7 +40,6 @@ export default function SortingVisualizer() {
             setSelectionSortCurrentStep(0);
             setMergeSortCurrentStep(0);
 
-           
             stopSelectionSortAnimation();
             stopMergeSortAnimation();
         }
@@ -122,7 +120,7 @@ export default function SortingVisualizer() {
 
             setArray(newArray);
         } catch (error) {
-			console.error("Error parsing input:", error);
+            console.error("Error parsing input:", error);
             alert("Invalid input. Please enter numbers separated by commas.");
         }
     };
@@ -385,7 +383,7 @@ export default function SortingVisualizer() {
 
             return (
                 <div
-                    key={"index"+index}
+                    key={"index" + index}
                     className={barClass}
                     style={{
                         height: `${(value / maxValue) * 100}%`,
@@ -434,7 +432,7 @@ export default function SortingVisualizer() {
 
             return (
                 <div
-                    key={"ind"+index}
+                    key={"ind" + index}
                     className={barClass}
                     style={{
                         height: `${(value / maxValue) * 100}%`,
@@ -467,14 +465,6 @@ export default function SortingVisualizer() {
                     ></div>
                     <span>Sorted</span>
                 </div>
-                {type === "selection" && (
-                    <div className={styles.legendItem}>
-                        <div
-                            className={`${styles.legendBox} ${styles.swap}`}
-                        ></div>
-                        <span>Swapping</span>
-                    </div>
-                )}
                 {type === "merge" && (
                     <>
                         <div className={styles.legendItem}>
@@ -545,11 +535,13 @@ export default function SortingVisualizer() {
                         the sorted subarray and the unsorted subarray.`}
                     </p>
                     <p>
-                        <strong>Time Complexity:</strong> {`O(n²) for both best
+                        <strong>Time Complexity:</strong>{" "}
+                        {`O(n²) for both best
                         and worst cases, making it inefficient for large arrays.`}
                     </p>
                     <p>
-                        <strong>Limitations:</strong> {`Selection sort always
+                        <strong>Limitations:</strong>{" "}
+                        {`Selection sort always
                         performs O(n²) comparisons making it inefficient for
                         large datasets. It does not adapt to the data being
                         sorted (i.e., its runtime is the same regardless of the
@@ -609,11 +601,13 @@ export default function SortingVisualizer() {
                         subproblems, solving them from the bottom up.`}
                     </p>
                     <p>
-                        <strong>Time Complexity:</strong> {`O(n log n) for all
+                        <strong>Time Complexity:</strong>{" "}
+                        {`O(n log n) for all
                         cases (best, average, worst).`}
                     </p>
                     <p>
-                        <strong>Limitations:</strong> {`While more efficient than
+                        <strong>Limitations:</strong>{" "}
+                        {`While more efficient than
                         selection sort, merge sort requires additional O(n)
                         space for the merging process, making it less
                         memory-efficient than in-place sorting algorithms. It's
