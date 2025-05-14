@@ -10,6 +10,14 @@ You can view the app at:
 
 https://algorithm-visualization-five.vercel.app/
 
+## Team Members
+- Juan Hernandez
+- Kristin Dana Salvacion
+
+All roles were shared and all team members worked on
+production of code as well as video production for 
+the final presentation.
+
 ## Features
 
 - **Interactive Array Input**: Enter custom arrays or generate random ones
